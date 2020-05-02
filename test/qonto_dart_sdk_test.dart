@@ -4,16 +4,12 @@ import 'dart:io' show Platform;
 
 void main() {
   group('A group of tests', () {
-    
     Qonto qonto;
     Map<String, String> envVars;
 
     setUp(() {
       envVars = Platform.environment;
-      qonto = Qonto(
-        id: envVars['QONTO_ID'],
-        secret: envVars['QONTO_SECRET']
-      );
+      qonto = Qonto(id: envVars['QONTO_ID'], secret: envVars['QONTO_SECRET']);
     });
 
     test('Test if members works', () async {
@@ -33,14 +29,14 @@ void main() {
     });
 
     test('Test if attachment details works', () async {
-      expect((await qonto.attachment(envVars['QONTO_TEST_ATTACHMENT'])), isNotNull);
+      expect((await qonto.attachment(envVars['QONTO_TEST_ATTACHMENT'])),
+          isNotNull);
     });
 
     test('Test if transactions works', () async {
       var org = await qonto.organization;
-      expect((await qonto.transactions(org.slug, org.bankAccounts[0].iban)), isNotEmpty);
+      expect((await qonto.transactions(org.slug, org.bankAccounts[0].iban)),
+          isNotEmpty);
     });
-
-
   });
 }

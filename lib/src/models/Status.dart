@@ -1,9 +1,4 @@
-enum Status {
-  pending,
-  reversed,
-  declined,
-  completed
-}
+enum Status { pending, reversed, declined, completed }
 
 /// Function handles the resolving a String input to a Status value
 ///
@@ -11,7 +6,7 @@ enum Status {
 /// @param param2 Parameter description
 /// @returns Status value corresponding the String input.
 /// @throws FormatException if the given String input match with any of the Status values
-Status resolveStatus (String input){
+Status resolveStatus(String input) {
   switch (input.toLowerCase()) {
     case 'pending':
       return Status.pending;
@@ -27,7 +22,7 @@ Status resolveStatus (String input){
 }
 
 /// Function returns the String value related to the Status value
-/// 
+///
 /// @param status The Status value that we want to return as String
 /// @returns String value related to the Status value
 /// @throws FormatException if the given status value has no String representation
@@ -42,6 +37,7 @@ String statusToString(Status status) {
     case Status.declined:
       return 'declined';
     default:
-      throw FormatException('${status} value does not have a String representation');
+      throw FormatException(
+          '${status} value does not have a String representation');
   }
 }

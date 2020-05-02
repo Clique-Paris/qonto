@@ -29,32 +29,31 @@ class Transaction {
   final bool attachmentLost;
   final bool attachmentRequired;
 
-  Transaction({
-    this.transactionId,
-    this.amount,
-    this.amountCents,
-    this.attachmentIds,
-    this.localAmount,
-    this.localAmountCents,
-    this.side,
-    this.operationType,
-    this.currency,
-    this.localCurrency,
-    this.label,
-    this.emittedAt,
-    this.settledAt,
-    this.updatedAt,
-    this.status,
-    this.note,
-    this.reference,
-    this.vatAmount,
-    this.vatRate,
-    this.vatAmountCents,
-    this.initiatorId,
-    this.labelIds,
-    this.attachmentLost,
-    this.attachmentRequired
-  }) {
+  Transaction(
+      {this.transactionId,
+      this.amount,
+      this.amountCents,
+      this.attachmentIds,
+      this.localAmount,
+      this.localAmountCents,
+      this.side,
+      this.operationType,
+      this.currency,
+      this.localCurrency,
+      this.label,
+      this.emittedAt,
+      this.settledAt,
+      this.updatedAt,
+      this.status,
+      this.note,
+      this.reference,
+      this.vatAmount,
+      this.vatRate,
+      this.vatAmountCents,
+      this.initiatorId,
+      this.labelIds,
+      this.attachmentLost,
+      this.attachmentRequired}) {
     ArgumentError.checkNotNull(transactionId, 'transaction_id');
     ArgumentError.checkNotNull(amount, 'amount');
     ArgumentError.checkNotNull(amountCents, 'amount_cents');
@@ -73,40 +72,41 @@ class Transaction {
   /// @param param2 Parameter description
   /// @returns Returns the Transaction object constructed from API's JSON return.
   /// @throws ArgumentError related to the Transaction constructor if there's any missing required parameters
-  static Transaction fromJSON (Map<String, dynamic>json){
+  static Transaction fromJSON(Map<String, dynamic> json) {
     return Transaction(
-      transactionId: json['transaction_id'],
-      amount: json['amount'],
-      amountCents: json['amount_cents'],
-      attachmentIds: <String>[...json['attachment_ids']],
-      localAmount: json['local_amound'],
-      localAmountCents: json['local_amount_cents'],
-      side: resolveSide(json['side']),
-      operationType: json['operaion_type'] != null ? resolveOperationType(json['opeation_type']) : null,
-      currency: json['currency'],
-      localCurrency: json['local_currency'],
-      label: json['label'],
-      settledAt: DateTime.parse(json['settled_at']),
-      emittedAt: DateTime.parse(json['emitted_at']),
-      updatedAt: DateTime.parse(json['updated_at']),
-      status: resolveStatus(json['status']),
-      note: json['note'],
-      reference: json['reference'],
-      vatAmount: json['vat_amount'],
-      vatAmountCents: json['vat_amount_cents'],
-      vatRate: json['vat_rate'] != null ? json['vat_rate'].toDouble() : null,
-      initiatorId: json['initiator_id'],
-      labelIds: <String>[...json['label_ids']],
-      attachmentLost: json['attachment_lost'],
-      attachmentRequired: json['attachment_required']
-    );
+        transactionId: json['transaction_id'],
+        amount: json['amount'],
+        amountCents: json['amount_cents'],
+        attachmentIds: <String>[...json['attachment_ids']],
+        localAmount: json['local_amound'],
+        localAmountCents: json['local_amount_cents'],
+        side: resolveSide(json['side']),
+        operationType: json['operaion_type'] != null
+            ? resolveOperationType(json['opeation_type'])
+            : null,
+        currency: json['currency'],
+        localCurrency: json['local_currency'],
+        label: json['label'],
+        settledAt: DateTime.parse(json['settled_at']),
+        emittedAt: DateTime.parse(json['emitted_at']),
+        updatedAt: DateTime.parse(json['updated_at']),
+        status: resolveStatus(json['status']),
+        note: json['note'],
+        reference: json['reference'],
+        vatAmount: json['vat_amount'],
+        vatAmountCents: json['vat_amount_cents'],
+        vatRate: json['vat_rate'] != null ? json['vat_rate'].toDouble() : null,
+        initiatorId: json['initiator_id'],
+        labelIds: <String>[...json['label_ids']],
+        attachmentLost: json['attachment_lost'],
+        attachmentRequired: json['attachment_required']);
   }
 
   /// Function returns the String representation of a Transaction instance
   ///
   /// @returns Returns the String representation of a Transaction object.
   @override
-  String toString (){
+  String toString() {
     var result = '';
     result += 'Transaction id: ${transactionId}\n';
     result += 'Amount: ${amount}\n';
