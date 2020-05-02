@@ -3,6 +3,9 @@ description: Qonto REST API implementation on Dart, based on Qonto REST API v2.
 version: 0.1.0
 homepage: https://github.com/Clique-Paris/qonto
 
+dependencies:
+  http: ^0.12.1
+
 environment:
   sdk: '>=2.7.0 <3.0.0'
 
