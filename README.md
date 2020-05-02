@@ -1,5 +1,7 @@
 # Qonto Online Banking Dart SDK
 
+[![Clique-Paris](https://circleci.com/gh/Clique-Paris/qonto.svg?style=svg)](https://app.circleci.com/pipelines/github/Clique-Paris/qonto)
+
 Dart implementation of [Qonto's REST API v2](https://api-doc.qonto.eu/2.0).
 
 ## A simple usage example:
