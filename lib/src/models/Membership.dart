@@ -15,14 +15,13 @@ class Membership {
 
   static Membership fromJSON(Map<String, dynamic> json) {
     return Membership(
-      id: json['id'],
-      firstName: json['first_name'],
-      lastName: json['last_name']
-    );
+        id: json['id'],
+        firstName: json['first_name'],
+        lastName: json['last_name']);
   }
 
   /// Function returns the String representation of the Mmebership object
-  /// 
+  ///
   /// @returns The string repsentation of the Membership object
   @override
   String toString() {

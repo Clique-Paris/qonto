@@ -28,7 +28,7 @@ class Label {
   }
 
   /// Function returns the String representation of the Label object
-  /// 
+  ///
   /// @returns The string representation of the Label object
   @override
   String toString() {

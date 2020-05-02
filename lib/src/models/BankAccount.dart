@@ -25,7 +25,8 @@ class BankAccount {
     ArgumentError.checkNotNull(balance, 'balance');
     ArgumentError.checkNotNull(balanceCents, 'balanceCents');
     ArgumentError.checkNotNull(authorizedBalance, 'authorizedBalance');
-    ArgumentError.checkNotNull(authorizedBalanceCents, 'authorizedBalanceCents');
+    ArgumentError.checkNotNull(
+        authorizedBalanceCents, 'authorizedBalanceCents');
   }
 
   /// Function constructs a BankAccount object from the JSON returned from API
@@ -35,19 +36,18 @@ class BankAccount {
   /// @throws Throws an ArgumentError if there's a missing attribute on BankAccount constructor
   static BankAccount fromJSON(Map<String, dynamic> json) {
     return BankAccount(
-      slug: json['slug'],
-      iban: json['iban'],
-      bic: json['bic'],
-      currency: json['currency'],
-      balance: json['balance'],
-      balanceCents: json['balance_cents'],
-      authorizedBalance: json['authorized_balance'],
-      authorizedBalanceCents: json['authorized_balance_cents']
-    );
+        slug: json['slug'],
+        iban: json['iban'],
+        bic: json['bic'],
+        currency: json['currency'],
+        balance: json['balance'],
+        balanceCents: json['balance_cents'],
+        authorizedBalance: json['authorized_balance'],
+        authorizedBalanceCents: json['authorized_balance_cents']);
   }
 
   /// Function returns the String representation of a BankAccount instance
-  /// 
+  ///
   /// @returns The string representation of a BankAccount object
   @override
   String toString() {
@@ -62,5 +62,4 @@ class BankAccount {
     result += 'Authorized balance cents: ${authorizedBalanceCents}';
     return result;
   }
-
 }
